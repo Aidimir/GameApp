@@ -28,17 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(767, 524);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // FinishScreen
             // 
@@ -46,16 +36,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GameApp.Resource1.noob;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.label1);
             this.Name = "FinishScreen";
             this.Size = new System.Drawing.Size(1920, 1080);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FinishScreen_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FinishScreen_MouseClick);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label label1;
     }
 }

@@ -17,6 +17,7 @@ namespace GameApp.Views
         public StartControl()
         {
             InitializeComponent();
+            button1.Text = "Начать игру";
         }
         public void Configure(Game game)
         {

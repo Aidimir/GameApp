@@ -22,7 +22,7 @@ namespace GameApp.Views
         private Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
         private int TargetTextureSize = 50;
         private bool DidHit = false;
-        private int Rate = 50;
+        private int Rate = 200;
 
         public GameScreen()
         {
@@ -49,7 +49,7 @@ namespace GameApp.Views
         private void timer1_Tick(object sender, EventArgs e)
         {
             ticks++;
-            TimerTextBox.Text = $"Время : {ticks}";
+            TimerTextBox.Text = $"время : {180 - ticks/40}";
             ScoreTextBox.Text = game.score.ToString() ;
             var localPosition = this.PointToClient(Cursor.Position);
             Point between = new Point(localPosition.X - _targetPosition.X, localPosition.Y - _targetPosition.Y);
@@ -65,29 +65,30 @@ namespace GameApp.Views
                 TargetTextureSize = r.Next(100, 250);
                 _targetPosition = new Point(r.Next(0, screenSize.Width-TargetTextureSize/2), r.Next(0,screenSize.Height-TargetTextureSize/2));
                 DidHit = false;
-                if ( Rate > 10 && Rate <= 20)
+                if ( Rate > 40 && Rate <= 80)
                 {
                     Rate -= 2;
                 }
-                else if( Rate <= 10 && Rate > 5)
+                else if( Rate <= 40 && Rate > 20)
                 {
                     Rate -= 1;
                 }
-                else if( Rate > 20 && Rate <= 50)
+                else if( Rate > 80 && Rate <= 200)
                 {
-                    Rate -= 5;
+                    Rate -= 10;
                 }
                 Refresh();
             }
-            if(ticks % 1800 == 0)
+            if(ticks % 7200 == 0)
             {
                 timer1.Stop();
                 if(game.score > game.BestScore)
                 {
                     game.BestScore = game.score;
                 }
-                game.score = 0;
+                game.LastResult = game.score;
                 Rate = 50;
+                game.score = 0;
                 game.EndGame();
                 ticks = 0;
             }

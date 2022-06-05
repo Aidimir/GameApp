@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.startControl1 = new GameApp.Views.StartControl();
             this.gameScreen1 = new GameApp.Views.GameScreen();
+            this.finishScreen1 = new GameApp.Views.FinishScreen();
             this.SuspendLayout();
             // 
             // startControl1
@@ -52,11 +53,21 @@
             this.gameScreen1.TabIndex = 1;
             this.gameScreen1.Load += new System.EventHandler(this.gameScreen1_Load);
             // 
+            // finishScreen1
+            // 
+            this.finishScreen1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finishScreen1.BackgroundImage")));
+            this.finishScreen1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.finishScreen1.Location = new System.Drawing.Point(0, 0);
+            this.finishScreen1.Name = "finishScreen1";
+            this.finishScreen1.Size = new System.Drawing.Size(3840, 2160);
+            this.finishScreen1.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2560, 1520);
+            this.Controls.Add(this.finishScreen1);
             this.Controls.Add(this.gameScreen1);
             this.Controls.Add(this.startControl1);
             this.Name = "MainForm";
@@ -70,5 +81,6 @@
 
         private StartControl startControl1;
         private GameScreen gameScreen1;
+        private FinishScreen finishScreen1;
     }
 }

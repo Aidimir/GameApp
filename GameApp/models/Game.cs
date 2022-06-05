@@ -13,6 +13,7 @@ namespace GameApp.models
         public event Action<GameStage> StageChanged;
         public int score = 0;
         public int BestScore = 0;
+        public int LastResult = 0;
         public void Start()
         {
             ChangeStage(GameStage.IsPlaying);
@@ -29,6 +30,7 @@ namespace GameApp.models
         public void EndGame()
         {
             ChangeStage(GameStage.Finished);
+            score = 0;
         }
     }
 }
