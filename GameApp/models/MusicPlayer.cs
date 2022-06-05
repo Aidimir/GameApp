@@ -9,7 +9,7 @@ namespace GameApp.models
 {
     public class MusicPlayer
     {
-        private const string PathToMusic = @"music\gameMusic.wav";
+        private const string PathToMusic = @"..\..\..\music\gameMusic.wav";
         private readonly SoundPlayer simpleSound;
         public bool IsPlaying { get; private set; }
 
